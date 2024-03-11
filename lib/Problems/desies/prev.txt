@@ -1,0 +1,137 @@
+import 'package:demo/Problems/default.dart';
+import 'package:demo/Problems/desies/fever/fever.dart';
+import 'package:demo/Problems/desies/headache.dart';
+import 'package:demo/ThemeSwitch.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class Desiges extends StatelessWidget {
+  const Desiges({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<ThemeProviderNotifier>(
+      builder: (context, themeProvider, child) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('My Desiges Page'),
+            backgroundColor: themeProvider.themeMode == ThemeMode.dark
+                ? Colors.grey[700] // Dark theme background color
+                : Colors.blue,
+          ),
+          body: Container(
+            color: themeProvider.themeMode == ThemeMode.dark
+                ? Colors.grey[900]
+                : Colors.white,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    const Text('Welcome to my Desiges page!',
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                            color: Color.fromARGB(255, 255, 60, 60),
+                            backgroundColor:
+                                Color.fromARGB(255, 216, 216, 216))),
+                    const SizedBox(height: 40), // Add some spacing
+
+                    // Button 1
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const FeverPage()), // Navigate to the SecondScreen
+                        );
+                        // Add your button 1 functionality here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize:
+                            const Size(200, 50), // Set height and width
+                      ),
+                      child: const Text(
+                        'Fever',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+
+                    const SizedBox(height: 20), // Add some spacing
+
+                    // Button 2
+                    ElevatedButton(
+                      onPressed: () {
+                        // Add your button 2 functionality here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const HeadachePage()), // Navigate to the SecondScreen
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize:
+                            const Size(200, 50), // Set height and width
+                      ),
+                      child: const Text(
+                        'Headache',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    const SizedBox(height: 20), // Add some spacing
+
+                    // Button 2
+                    ElevatedButton(
+                      onPressed: () {
+                        // Add your button 2 functionality here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const DefaultPage()), // Navigate to the SecondScreen
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize:
+                            const Size(200, 50), // Set height and width
+                      ),
+                      child: const Text(
+                        'Snivel or cuff',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    const SizedBox(height: 20), // Add some spacing
+
+                    // Button 2
+                    ElevatedButton(
+                      onPressed: () {
+                        // Add your button 2 functionality here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const DefaultPage()), // Navigate to the SecondScreen
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize:
+                            const Size(200, 50), // Set height and width
+                      ),
+                      child: const Text(
+                        'Acidity',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
